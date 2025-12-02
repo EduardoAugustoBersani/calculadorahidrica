@@ -12,15 +12,24 @@ document.getElementById("btnCalcular").addEventListener("click", () => {
     agua: 0
   };
 
-  const balancoTotal = entrada - saida;
-  const balancoHidrico = balancoTotal / peso;
-  const diurese = saida / peso / 24;
-  const ofertaHidrica = entrada / peso;
-  const ofertaCalorica = entrada * calorias[tipo];
+  const balancoTotal = entrada - saida;                    // ml
+  const balancoHidrico = balancoTotal / peso;             // ml/kg
+  const diurese = saida / peso / 24;                      // ml/kg/h
+  const ofertaHidrica = entrada / peso;                   // ml/kg
+  const ofertaCalorica = ofertaHidrica * calorias[tipo];  // kcal/kg
 
-  document.getElementById("balancoTotal").innerText = balancoTotal.toFixed(2);
-  document.getElementById("balancoHidrico").innerText = balancoHidrico.toFixed(2);
-  document.getElementById("diurese").innerText = diurese.toFixed(4);
-  document.getElementById("ofertaHidrica").innerText = ofertaHidrica.toFixed(2);
-  document.getElementById("ofertaCalorica").innerText = ofertaCalorica.toFixed(2);
+  document.getElementById("balancoTotal").innerText =
+    `${balancoTotal.toFixed(2)} ml`;
+
+  document.getElementById("balancoHidrico").innerText =
+    `${balancoHidrico.toFixed(2)} ml/kg`;
+
+  document.getElementById("diurese").innerText =
+    `${diurese.toFixed(4)} ml/kg/h`;
+
+  document.getElementById("ofertaHidrica").innerText =
+    `${ofertaHidrica.toFixed(2)} ml/kg`;
+
+  document.getElementById("ofertaCalorica").innerText =
+    `${ofertaCalorica.toFixed(2)} kcal/kg`;
 });
